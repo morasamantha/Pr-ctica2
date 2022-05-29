@@ -117,7 +117,7 @@
 		border-left: 2px solid #00c133;
 	}
 
-	.fa-trash {
+	.fa-times {
 		float: right;
 		color: #000;
 		cursor: pointer;
@@ -169,7 +169,7 @@
 				var x = $("<div class='task'></div>");
 				var y = $("<h4></h4>").text(titulo);
 				var z = $("<p></p>").text(cuerpo);
-				var dlt = $("<i class='fa fa-trash'>").click(function () {
+				var dlt = $("<i class='fa fa-times'>").click(function () {
 					var a = $(this).parent();
 					a.fadeOut(function () {
 						a.remove();
