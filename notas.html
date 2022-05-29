@@ -188,6 +188,8 @@
 						a.remove();
 					});
 				});
+				y.css("color", $('#text').css("color"));
+				z.css("color", $('#text2').css("color"));
 				x.append(dlt);
 				x.append(y);
 				x.append(z);
@@ -234,7 +236,7 @@
 					colorCambio = "#008B8B";
 					contador = 0;
 			}
-			$("p").css("color", colorCambio);
+			$("#text2").css("color", colorCambio);
 		});
 
 		$('.btn4').click(function () {
@@ -268,7 +270,7 @@
 					colorCambio = "#008B8B";
 					contador2= 0;
 			}
-			$("h4").css("color", colorCambio);
+			$("#text").css("color", colorCambio);
 		});
 
 	});
