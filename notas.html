@@ -25,83 +25,78 @@
 	}
 
 	h1 {
-		margin-top: 60px;
-		margin-left: 135px;
-		position: fixed;
 		font-size: 30px;
 		font-weight: 900;
 		font-family: courier new;
 		color: black;
 		text-align: left;
+		margin: 30px;
 	}
 
-	.container {
-		width: 550px;
-		height: 350px;
-		margin-top: 140px;
-		margin-left: 80px;
-		position: fixed;
-		left: 50px;
-		box-shadow: 6px 6px #a6a6a6;
-		border-radius: 40px;
-		background: #13C1E4;
-       
+	.container-principal{
+		display: flex;
+		flex-direction: row;
+		flex-wrap: wrap;
+		justify-content: space-around;
+		align-items: flex-start;
+	}
 
+	.creador-notas {
+		width: 40%;
+		min-width: 400px;
+		height: 350px;
+		box-shadow: 6px 6px #a6a6a6;
+		border-radius: 30px;
+		background: #13C1E4;
+		margin-right: 15px;
+		margin-bottom: 20px;
+		border-top: 2px solid #00c133;
+		border-left: 2px solid #00c133;
+	}
+
+	@media only screen and (min-width: 800px){
+		.creador-notas {
+			position: -webkit-sticky;
+			position: sticky;
+			align-self: flex-start;
+			top: 20px;
+		}
+	}
+
+	.contenedor-notas{
+		display: inline-flex;
+		flex-direction: column;
+		width: 40%;
+		min-width: 400px;
 	}
 
 	input[type="text"] {
 		height: 50px;
-		width: 270px;
-		margin-left: 30px;
-		margin-top: 30px;
+		width: 100%;
 		color: black;
-		padding-left: 10px;
-		border-radius: 10px;
+		border-radius: 5px;
 		border: 3px solid black;
+		margin-bottom: 10px;
 	}
 
-	input[type="text2"] {
-		height: 210px;
-		width: 270px;
-		margin-left: 30px;
-		margin-top: 30px;
+	#text2 {
+		height: 230px;
+		width: 100%;
 		color: black;
-		padding-left: 10px;
-		border-radius: 30px;
+		border-radius: 5px;
 		border: 3px solid black;
 		text-align: center;
+		margin-bottom: 10px;
 	}
 
 	button {
 		color: black;
-		height: 50px;
-		width: 200px;
+		width: 100%;
 		background: #BFFC89;
 		border-radius: 10px;
 		border: 3px solid black;
+		margin-bottom: 10px;
 
-	}
-
-	.btn4 {
-		margin-left: 50px;
-		margin-top: 30px;
-	}
-
-
-
-	.btn3 {
-		margin-left: 50px;
-		margin-top: 30px;
-	}
-
-	.btn2 {
-		margin-left: 50px;
-		margin-top: 30px;
-	}
-
-	.btn1 {
-		margin-left: 50px;
-		margin-top: 30px;
 	}
 
 	button:hover {
@@ -109,34 +104,22 @@
 		color: #fff;
 	}
 
-	.task-todo {
-		width: 550px;
-		height: 350px;
-		margin-top: 120px;
-		margin-right: 100px;
-
-		float: right;
-		width: 750px;
-		height: 400px;
-	}
-
 	.task-todo .task {
 		background: #13C1E4;
 		box-shadow: 6px 6px #a6a6a6;
 		color: black;
-        width: 550px;
-		height: 350px;
-		margin: 20px 30px 30px 30px;
-		padding: 30px 0 0 50px;
-		border-radius: 40px;
+        width: 100%;
+		border-radius: 30px;
 		text-align: left;
+		padding:30px;
+		margin-bottom: 20px;
+		border-top: 2px solid #00c133;
+		border-left: 2px solid #00c133;
 	}
 
 	.fa-trash {
 		float: right;
-		margin-right: 20px;
 		color: #000;
-		padding-right: 30px;
 		cursor: pointer;
 	}
 
@@ -144,144 +127,138 @@
 	.column {
 		float: left;
 		width: 50%;
+		padding-left:25px;
+		padding-top:25px;
+	}
+	.column2 {
+		padding-right: 25px;
 	}
 
-	/* Clear floats after the columns */
-	.row:after {
-		content: "";
-		display: table;
-		clear: both;
-	}
 </style>
 
 <body>
 	<h1>Bienvenido a NOTAS v1.0</h1>
-
-	<div class="container">
-
-		<div class="row">
+	<div class="container-principal">
+		<div class="creador-notas">
 			<div class="column">
 				<input type="text" placeholder="Título" id="text">
-				<input type="text2" placeholder="Escribe aquí" id="text2">
-
+				<textarea placeholder="Escribe aquí" id="text2"></textarea>
 			</div>
-
-			<div class="column">
+			<div class="column column2">
 				<button class="btn4">Cambiar color</button>
 				<button class="btn3">Cambiar Color</button>
 				<button class="btn2">Limpiar Texto</button>
 				<button class="btn1">Guardar</button>
 			</div>
-
 		</div>
-
-		<script type="text/javascript">
-			$(document).ready(function () {
-				var contador = 0;
-				var contador2 = 0;
-
-				$('.btn1').click(function () {
-					if ($('#text').val().length != 0 & $('#text2').val().length != 0) {
-						var titulo = $('#text').val();
-						var cuerpo = $('#text2').val();
-						var x = $("<div class='task'></div>");
-						var y = $("<h4></h4>").text(titulo);
-						var z = $("<p></p>").text(cuerpo);
-						var dlt = $("<i class='fa fa-trash'>").click(function () {
-							var a = $(this).parent();
-							a.fadeOut(function () {
-								a.remove();
-							});
-						});
-						x.append(dlt);
-						x.append(y);
-						x.append(z);
-						$('.task-todo').append(x);
-						$('#text').val("");
-						$('#text2').val("");
-					}
-					else alert("Ingresa una nota!");
-				});
-
-				$('.btn2').click(function () {
-					$('#text').val("");
-					$('#text2').val("");
-				});
-
-				$('.btn3').click(function () {
-					colorCambio = "#CD5C5C";
-					switch (contador) {
-						case 0:
-							colorCambio = "#FF8C00";
-							contador++;
-							break;
-						case 1:
-							colorCambio = "#FF69B4";
-							contador++;
-							break;
-						case 2:
-							colorCambio = "#BDB76B";
-							contador++;
-							break;
-						case 3:
-							colorCambio = "#663399";
-							contador++;
-							break;
-						case 4:
-							colorCambio = "#4B0082";
-							contador++;
-							break;
-						case 5:
-							colorCambio = "#228B22";
-							contador++;
-							break;
-						case 6:
-							colorCambio = "#008B8B";
-							contador = 0;
-					}
-					$("p").css("color", colorCambio);
-				});
-
-				$('.btn4').click(function () {
-					colorCambio = "#CD5C5C";
-					switch (contador2) {
-						case 0:
-							colorCambio = "#FF8C00";
-							contador2++;
-							break;
-						case 1:
-							colorCambio = "#FF69B4";
-							contador2++;
-							break;
-						case 2:
-							colorCambio = "#BDB76B";
-							contador2++;
-							break;
-						case 3:
-							colorCambio = "#663399";
-							contador2++;
-							break;
-						case 4:
-							colorCambio = "#4B0082";
-							contador2++;
-							break;
-						case 5:
-							colorCambio = "#228B22";
-							contador2++;
-							break;
-						case 6:
-							colorCambio = "#008B8B";
-							contador2= 0;
-					}
-					$("h4").css("color", colorCambio);
-				});
-
-			});
-		</script>
+		<div class="contenedor-notas">
+			<div class="task-todo"></div>
+		</div>
 	</div>
-
-	<div class="task-todo"> </div>
-
 </body>
+
+<script type="text/javascript">
+	$(document).ready(function () {
+		var contador = 0;
+		var contador2 = 0;
+
+		$('.btn1').click(function () {
+			if ($('#text').val().length != 0 & $('#text2').val().length != 0) {
+				var titulo = $('#text').val();
+				var cuerpo = $('#text2').val();
+				var x = $("<div class='task'></div>");
+				var y = $("<h4></h4>").text(titulo);
+				var z = $("<p></p>").text(cuerpo);
+				var dlt = $("<i class='fa fa-trash'>").click(function () {
+					var a = $(this).parent();
+					a.fadeOut(function () {
+						a.remove();
+					});
+				});
+				x.append(dlt);
+				x.append(y);
+				x.append(z);
+				$('.task-todo').append(x);
+				$('#text').val("");
+				$('#text2').val("");
+			}
+			else alert("Ingresa una nota!");
+		});
+
+		$('.btn2').click(function () {
+			$('#text').val("");
+			$('#text2').val("");
+		});
+
+		$('.btn3').click(function () {
+			colorCambio = "#CD5C5C";
+			switch (contador) {
+				case 0:
+					colorCambio = "#FF8C00";
+					contador++;
+					break;
+				case 1:
+					colorCambio = "#FF69B4";
+					contador++;
+					break;
+				case 2:
+					colorCambio = "#BDB76B";
+					contador++;
+					break;
+				case 3:
+					colorCambio = "#663399";
+					contador++;
+					break;
+				case 4:
+					colorCambio = "#4B0082";
+					contador++;
+					break;
+				case 5:
+					colorCambio = "#228B22";
+					contador++;
+					break;
+				case 6:
+					colorCambio = "#008B8B";
+					contador = 0;
+			}
+			$("p").css("color", colorCambio);
+		});
+
+		$('.btn4').click(function () {
+			colorCambio = "#CD5C5C";
+			switch (contador2) {
+				case 0:
+					colorCambio = "#FF8C00";
+					contador2++;
+					break;
+				case 1:
+					colorCambio = "#FF69B4";
+					contador2++;
+					break;
+				case 2:
+					colorCambio = "#BDB76B";
+					contador2++;
+					break;
+				case 3:
+					colorCambio = "#663399";
+					contador2++;
+					break;
+				case 4:
+					colorCambio = "#4B0082";
+					contador2++;
+					break;
+				case 5:
+					colorCambio = "#228B22";
+					contador2++;
+					break;
+				case 6:
+					colorCambio = "#008B8B";
+					contador2= 0;
+			}
+			$("h4").css("color", colorCambio);
+		});
+
+	});
+</script>
 
 </html>
