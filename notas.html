@@ -31,6 +31,7 @@
 		color: black;
 		text-align: left;
 		margin: 30px;
+		margin-left: 60px;
 	}
 
 	.container-principal{
@@ -54,15 +55,6 @@
 		border-left: 2px solid #00c133;
 	}
 
-	@media only screen and (min-width: 800px){
-		.creador-notas {
-			position: -webkit-sticky;
-			position: sticky;
-			align-self: flex-start;
-			top: 20px;
-		}
-	}
-
 	.contenedor-notas{
 		display: inline-flex;
 		flex-direction: column;
@@ -76,14 +68,14 @@
 		color: black;
 		border-radius: 5px;
 		border: 3px solid black;
-		margin-bottom: 10px;
+		margin-bottom: 20px;
 	}
 
 	#text2 {
 		height: 230px;
 		width: 100%;
 		color: black;
-		border-radius: 5px;
+		border-radius: 20px;
 		border: 3px solid black;
 		text-align: center;
 		margin-bottom: 10px;
@@ -95,8 +87,7 @@
 		background: #BFFC89;
 		border-radius: 10px;
 		border: 3px solid black;
-		margin-bottom: 10px;
-
+		padding: 5px;
 	}
 
 	button:hover {
@@ -115,6 +106,7 @@
 		margin-bottom: 20px;
 		border-top: 2px solid #00c133;
 		border-left: 2px solid #00c133;
+		min-height: 350px;
 	}
 
 	.fa-times {
@@ -129,9 +121,30 @@
 		width: 50%;
 		padding-left:25px;
 		padding-top:25px;
+		padding-bottom: 25px;
 	}
 	.column2 {
 		padding-right: 25px;
+		display: inline-flex;
+		flex-direction: column;
+		justify-content: space-between;
+		height: 100%;
+	}
+
+	@media only screen and (min-width: 800px){
+		.creador-notas {
+			position: -webkit-sticky;
+			position: sticky;
+			align-self: flex-start;
+			top: 20px;
+		}
+	}
+
+	@media only screen and (min-width: 1150px){
+		button {
+			padding-top: 10px;
+			padding-bottom: 10px;
+		}
 	}
 
 </style>
