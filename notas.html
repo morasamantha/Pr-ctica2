@@ -4,16 +4,16 @@
 <head>
 	<meta charset="utf-8" />
 	<title>Notas</title>
-	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js">
-	</script>
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js">
 	</script>
 	<script src="https://code.jquery.com/jquery-3.4.1.js"></script>
 
 </head>
 <style type="text/css">
+
+	* {
+		box-sizing: border-box;
+	}
 	body {
 		margin: 0;
 		padding: 0;
@@ -68,6 +68,9 @@
 		border-radius: 10px;
 		border: 3px solid black;
 		margin-bottom: 20px;
+        font-family: inherit;
+		font-size: inherit;
+		line-height: inherit;
 	}
 
 	#text2 {
@@ -78,6 +81,9 @@
 		border: 3px solid black;
 		text-align: center;
 		margin-bottom: 10px;
+        	font-family: inherit;
+		font-size: inherit;
+		line-height: inherit;
 	}
 
 	button {
@@ -87,6 +93,9 @@
 		border-radius: 10px;
 		border: 3px solid black;
 		padding: 5px;
+        	font-family: inherit;
+		font-size: inherit;
+		line-height: inherit;
 	}
 
 	button:hover {
@@ -98,7 +107,7 @@
 		background: #13C1E4;
 		box-shadow: 6px 6px #a6a6a6;
 		color: black;
-        width: 100%;
+       	 	width: 100%;
 		border-radius: 30px;
 		text-align: left;
 		padding:30px;
@@ -107,13 +116,19 @@
 		border-left: 2px solid #00c133;
 		min-height: 350px;
 	}
-
-	.fa-times {
-		float: right;
-		color: #000;
-		cursor: pointer;
+    
+	.tache {
+  		font-size: 30px;
+  		color: black;
+  		float: right;
+  		line-height: 1;
 	}
 
+	.tache:hover {
+ 		opacity: .7;
+        	font-weight: bold;
+        	color:red;
+	}
 
 	.column {
 		float: left;
@@ -181,7 +196,7 @@
 				var x = $("<div class='task'></div>");
 				var y = $("<h4></h4>").text(titulo);
 				var z = $("<p></p>").text(cuerpo);
-				var dlt = $("<i class='fa fa-times'>").click(function () {
+				var dlt = $("<span class='tache'>X</span>").click(function () {
 					var a = $(this).parent();
 					a.fadeOut(function () {
 						a.remove();
